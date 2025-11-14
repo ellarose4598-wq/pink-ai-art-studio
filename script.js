@@ -3,26 +3,25 @@ function showPage(pageId) {
     document.querySelectorAll(".page").forEach(p => p.classList.add("hidden"));
     document.getElementById(pageId).classList.remove("hidden");
 }
+// Get references to HTML elements
+const input = document.getElementById('prompt');
+const button = document.getElementById('generate');
+const img = document.getElementById('ai-image');
 
-// SIMPLE AI GENERATOR (you can replace this later)
-// Make sure your HTML has these elements:
-// <input type="text" id="prompt" placeholder="Enter your prompt">
-// <button id="generate">Generate</button>
-// <img id="ai-image" src="" alt="Generated Image">
-
-document.getElementById('generate').addEventListener('click', function() {
-    const prompt = document.getElementById('prompt').value.trim();
-
+button.addEventListener('click', function() {
+    const prompt = input.value.trim();
+    
     if (!prompt) {
         alert("Please enter a prompt!");
         return;
     }
 
-    // Unsplash URL that searches by the prompt
+    // Unsplash search URL based on prompt
     const imageUrl = `https://source.unsplash.com/400x400/?${encodeURIComponent(prompt)}`;
 
-    // Set the image src to the new URL
-    document.getElementById('ai-image').src = imageUrl;
+    // Update the image
+    img.src = imageUrl;
+});
 });
 
 // WHITEBOARD FULL FEATURE SET
