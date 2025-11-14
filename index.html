@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pink AI Art Studio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body oncontextmenu="return false;">
+    <header>
+        <h1>✨ Pink AI Art Studio ✨</h1>
+        <nav>
+            <button onclick="showPage('generator-page')">AI Generator</button>
+            <button onclick="showPage('whiteboard-page')">Whiteboard</button>
+        </nav>
+    </header>
+
+    <!-- AI IMAGE GENERATOR -->
+    <section id="generator-page" class="page">
+        <div class="card">
+            <h2>🎨 AI Image Generator</h2>
+            <p class="subtext">Generate reference images (not downloadable).</p>
+
+            <div class="input-row">
+                <input id="prompt" type="text" placeholder="Describe what you want to generate...">
+                <button onclick="fakeGenerate()" class="pink-btn">Generate</button>
+            </div>
+
+            <div id="generated-image-container">
+                <img id="generated-image" class="blocked-img">
+            </div>
+        </div>
+    </section>
+
+    <!-- WHITEBOARD -->
+    <section id="whiteboard-page" class="page hidden">
+        <div class="card">
+            <h2>🖌️ Whiteboard</h2>
+            <p class="subtext">Use the AI image as inspiration and draw freely!</p>
+
+            <div class="toolbar">
+                <label>Brush Size:
+                    <input id="brushSize" type="range" min="2" max="30" value="5">
+                </label>
+
+                <label>Color:
+                    <input id="colorPicker" type="color" value="#000000">
+                </label>
+
+                <button onclick="eraseMode()" class="tool-btn">Eraser</button>
+                <button onclick="undo()" class="tool-btn">Undo</button>
+                <button onclick="redo()" class="tool-btn">Redo</button>
+                <button onclick="clearBoard()" class="tool-btn">Clear</button>
+
+                <button onclick="downloadCanvas()" class="pink-btn">Download Drawing</button>
+                <button onclick="useGenerated()" class="pink-btn">Use AI Image</button>
+            </div>
+
+            <canvas id="board" width="900" height="500"></canvas>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
