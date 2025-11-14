@@ -1,2 +1,2 @@
-# pink-ai-art-studio
-AI Art studio for school project
+# pixel-muse
+where ai and art meet
